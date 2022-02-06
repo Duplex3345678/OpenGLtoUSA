@@ -116,14 +116,14 @@ int main() {
     glBindVertexArray(VAO);
 
     glBindBuffer(GL_ARRAY_BUFFER, VBO[0]);
-    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(glm::vec3), &vertices[0], GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(vertices[0]), &vertices[0], GL_STATIC_DRAW);
 
     // position attribute
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void *)0);
     glEnableVertexAttribArray(0);
 
     glBindBuffer(GL_ARRAY_BUFFER, VBO[1]);
-    glBufferData(GL_ARRAY_BUFFER, verticesNormal.size() * sizeof(glm::vec3), &verticesNormal[0], GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, verticesNormal.size() * sizeof(verticesNormal[0]), &verticesNormal[0], GL_STATIC_DRAW);
 
     // normal attribute
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void *)0);
@@ -156,20 +156,16 @@ int main() {
         // activate shader
         ourShader.use();
 
-        // pass projection matrix to shader (note that in this case it could change every frame)
+        // MVP
+        glm::mat4 model = glm::mat4(1.0f);
+        ourShader.setMat4("model", model);
         glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
         ourShader.setMat4("projection", projection);
-
-        // camera/view transformation
         glm::mat4 view = camera.GetViewMatrix();
         ourShader.setMat4("view", view);
 
-        // render boxes
+        // render teatop
         glBindVertexArray(VAO);
-
-        glm::mat4 model = glm::mat4(1.0f);
-        ourShader.setMat4("model", model);
-
         glDrawArrays(GL_TRIANGLES, 0, vertices.size());
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
