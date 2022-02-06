@@ -1,5 +1,4 @@
 ﻿  main.cpp
-C:\Users\jeff1\OneDrive\桌面\NTU\git\OpenGLtoUSA\CGproject_1\CGproject_1\main.cpp(74,29): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Users\jeff1\OneDrive\桌面\NTU\git\OpenGLtoUSA\CGproject_1\CGproject_1\main.cpp(75,36): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Users\jeff1\OneDrive\桌面\NTU\git\OpenGLtoUSA\CGproject_1\CGproject_1\main.cpp(193,54): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+C:\Users\jeff1\OneDrive\桌面\NTU\git\OpenGLtoUSA\CGproject_1\CGproject_1\main.cpp(173,54): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   CGproject_1.vcxproj -> C:\Users\jeff1\OneDrive\桌面\NTU\git\OpenGLtoUSA\CGproject_1\x64\Debug\CGproject_1.exe
